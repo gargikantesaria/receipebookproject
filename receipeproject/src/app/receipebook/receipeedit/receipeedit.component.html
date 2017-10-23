@@ -1,0 +1,70 @@
+<div class="row">
+  <div class="col-xs-12">
+    <form [formGroup]="receipeform" (ngSubmit)="onsubmit()">
+      <div class="row">
+        <div class="col-xs-12">
+          <button class="btn btn-success" type="submit" [disabled]="!receipeform.valid">Save</button>
+          <button class="btn btn-danger" type="button" (click)="oncancel()">Cancel</button>
+        </div>
+      </div>
+      <br>
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="form-group">
+            <input type="text" id="receipename" placeholder="name" class="form-control" formControlName="receipename">
+            <small *ngIf="!receipeform.get('receipename').valid && receipeform.get('receipename').touched">plz enter name</small>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="form-group">
+            <input type="text" id="imagepath" placeholder="imgpath" class="form-control" formControlName="receipeimagepath" #imgpath>
+            <small *ngIf="!receipeform.get('receipeimagepath').valid && receipeform.get('receipeimagepath').touched">plz enter receipeimagepath</small>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="form-group">
+            <img [src]="imgpath.value" alt="this iamge can't be loaded" class="img-responsive" width="80" height="80">
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="form-group">
+            <textarea rows="4" id="description" class="form-control" placeholder="description" formControlName="description"></textarea>
+            <small *ngIf="!receipeform.get('description').valid && receipeform.get('description').touched">plz enter description</small>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12" formArrayName="ingredients">
+          Ingredient Detail:
+          <div class="row" *ngFor="let recipeControl of receipeform.get('ingredients').controls;let in=index" [formGroupName]="in">
+            <div class="col-xs-7">
+              <input type="text" id="nameofingredient" placeholder="name" class="form-control" formControlName="name">
+              <small *ngIf="!recipeControl.get('name').valid && recipeControl.get('name').touched">plz enter name</small>
+            </div>
+
+            <div class="col-xs-3">
+              <input type="number" id="amountof ingredient" placeholder="amount" class="form-control" formControlName="amount">
+              <small *ngIf="!recipeControl.get('amount').valid && recipeControl.get('amount').touched">plz enter amount</small>
+            </div>
+
+            <div class="col-xs-2">
+              <button type="button" class="btn btn-danger" (click)="ondeleteingredient(in)">X</button>
+            </div>
+          </div>
+          <hr>
+          <div class="row">
+            <div class="col-xs-12">
+              <button type="button" class="btn btn-success" (click)="addingredient()">Add new ingredient</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,45 @@
+<head>
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  </head>
+  <body>
+  
+  <div class="row">
+  <div class="col-xs-12">
+        <img [src]="sreceipe.imgpath" alt=" sry img cant be displayed" class="img-responsive" height="300" width="300">
+    </div>
+  </div>
+  <div class="row" >
+      <div class="col-xs-12">
+        <div class="btn-group" style="float:right" appdropdown>
+          <button type="button" class="btn btn-primary dropdown-toggle">manage receipe <span class="caret"></span>
+          </button>
+        <ul class="dropdown-menu">
+          <li><a (click)="btnclick()" style="cursor:pointer">to shopping list</a></li>
+          <li><a routerLink="edit" style="cursor:pointer">edit receipe</a></li>
+          <!-- <li><a (click)="onedit()">edit receipe</a></li> -->
+          <li><a (click)="ondelete()" style="cursor:pointer">delete receipe</a></li>
+        </ul>
+     </div>
+    </div>
+  </div>
+   <div class="row">
+     <div class="col-xs-12">
+       <h1>{{sreceipe.name}}</h1>
+    </div>
+   </div>
+   
+  <div class="row">
+    <div class="col-xs-12">
+        {{sreceipe.description}}
+    </div>
+  </div><br>
+  <div class="row">
+    <div class="col-xs-12">
+      ingredients:
+      <h6 *ngFor="let ingredient of sreceipe.ingredient">
+        {{ingredient.name}}({{ingredient.amount}})
+      </h6>
+    </div>
+  </div>
+  
+  </body>

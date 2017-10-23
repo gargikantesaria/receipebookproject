@@ -1,0 +1,31 @@
+<head>
+  <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+<body>
+  
+<app-header (linkselected)="onclick($event)"></app-header>
+  
+  <div class="container">
+    <router-outlet></router-outlet>    
+    <!-- <app-receipebook *ngIf="selectedlink==='receipebook'"></app-receipebook>
+    <app-shoppinglist *ngIf="selectedlink==='shopping-list'"></app-shoppinglist> -->
+  </div>
+    
+
+  <!-- <button type="button" (click)="onlyodd=!onlyodd">click to get</button>
+  <div *appunless="!onlyodd">
+  <p [ngClass]="{odd: true}">
+  <li *ngFor="let no of odd">{{no}}</li>
+  </p>
+  </div>
+  <div *appunless="onlyodd">
+  <p [ngClass]="{even: y%2!==0}">
+  <li *ngFor="let no of even">{{no}}</li>
+  </p>
+  </div>
+  <div [ngSwitch]="value">
+    <p *ngSwitchCase="5"> value is 5</p>
+    <p *ngSwitchCase="10"> value is 10</p>
+    <p *ngSwitchDefault> value is nothing</p>
+  </div> -->
+</body>

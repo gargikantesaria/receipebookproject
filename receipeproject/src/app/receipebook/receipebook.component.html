@@ -1,0 +1,17 @@
+<head>
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+<body>
+ 
+    <div class="row">
+        <div class="col-md-5">
+            <app-receipelist></app-receipelist>
+        </div>
+        <div class="col-md-7">
+             <!-- <app-receipedetails *ngIf="receipeclick; else infotext" [sreceipe]="receipeclick"></app-receipedetails> -->
+             
+            <router-outlet></router-outlet>
+        </div>
+    </div>
+
+</body>

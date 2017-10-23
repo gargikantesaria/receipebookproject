@@ -1,0 +1,22 @@
+<head>
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <style>
+      .btn{
+        background: #F0E5A8;
+      }
+    </style>
+</head>
+<body>
+  <div class="row">
+    <div class="col-xs-12">
+      <button class="btn" routerLink="new">new receipe</button>
+      <!-- <button class="btn" (click)="onedit()">new receipe</button> -->
+    </div>
+  </div>
+  <br>
+  <div class="row">
+  <div class="col-xs-12">  
+      <app-receipeitem *ngFor="let receipes of receipes;let i=index" [receipe]="receipes" [receipeid]="i"></app-receipeitem>
+  </div>
+  </div>
+</body>
